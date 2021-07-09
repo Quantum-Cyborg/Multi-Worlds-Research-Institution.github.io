@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="中文/en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hopf,Algebraic Geometry," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="霍普夫映射(Hopf map) 霍普夫映射是一个四维球面到三维球面的一个映射\(h:S^3 \rightarrow S^2\)满足： \[h(a,b,c,d) &#x3D; (a^2 + b^2 -c^2 -d^2 , 2(ad +bc), 2(bd - ac)),\] 其中\((a,b,c,d)\)是四维单位球面上的坐标，满足\(a^2 + b^2 + c^2 + d^2 &#x3D; 1\)，并且不难验证作为像">
+<meta property="og:type" content="article">
+<meta property="og:title" content="霍普夫映射与四元数">
+<meta property="og:url" content="http://example.com/2021/07/09/Math/Hopf/index.html">
+<meta property="og:site_name" content="多世界研究所">
+<meta property="og:description" content="霍普夫映射(Hopf map) 霍普夫映射是一个四维球面到三维球面的一个映射\(h:S^3 \rightarrow S^2\)满足： \[h(a,b,c,d) &#x3D; (a^2 + b^2 -c^2 -d^2 , 2(ad +bc), 2(bd - ac)),\] 其中\((a,b,c,d)\)是四维单位球面上的坐标，满足\(a^2 + b^2 + c^2 + d^2 &#x3D; 1\)，并且不难验证作为像">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-07-08T18:00:53.000Z">
+<meta property="article:modified_time" content="2021-07-09T10:11:43.353Z">
+<meta property="article:tag" content="Hopf">
+<meta property="article:tag" content="Algebraic Geometry">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2021/07/09/Math/Hopf/"/>
+
+
+
+
+
+  <title>霍普夫映射与四元数 | 多世界研究所</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="中文/en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">多世界研究所</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Multi-Worlds Research Institution</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            Commonweal 404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/09/Math/Hopf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="多世界研究所">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">霍普夫映射与四元数</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-07-09T02:00:53+08:00">
+                2021-07-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Math/" itemprop="url" rel="index">
+                    <span itemprop="name">Math</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="霍普夫映射hopf-map">霍普夫映射(Hopf map)</h1>
+<p>霍普夫映射是一个四维球面到三维球面的一个映射<span class="math inline">\(h:S^3 \rightarrow S^2\)</span>满足： <span class="math display">\[h(a,b,c,d) = (a^2 + b^2 -c^2 -d^2 , 2(ad +bc), 2(bd - ac)),\]</span> 其中<span class="math inline">\((a,b,c,d)\)</span>是四维单位球面上的坐标，满足<span class="math inline">\(a^2 + b^2 + c^2 + d^2 = 1\)</span>，并且不难验证作为像的三维坐标<span class="math inline">\((a^2 + b^2 -c^2 -d^2 , 2(ad +bc), 2(bd - ac))\)</span>同样是位于三维单位球面上的。为了更好地理解霍普夫映射以及霍普夫纤维化，我们需要引入一种更好的刻画四维球面的方法，即所谓的四元数。</p>
+<h1 id="四元数">四元数</h1>
+<p>在四维欧式空间<span class="math inline">\(\mathbb{R}^4\)</span>里，考虑任何一个四维矢量<span class="math inline">\((a,b,c,d)\)</span>（这里暂不要求是单位矢量），我们可以将其写为： <span class="math display">\[r \equiv a + b I + c J + d K = (a + b I) + (c + d I) J,\]</span> 其中<span class="math inline">\(I\)</span>是我们常用的虚数单位，而<span class="math inline">\(J,K\)</span>则是另外引入的两个新的虚数单位，它们三者之间满足如下的代数关系： <span class="math display">\[\left\{ \begin{array}{l}
+I^2 = J^2 = K^2 = -1\\
+IJ = - JI = K,\\  JK=-KJ = I,\\ KI = -IK = J
+\end{array} \right.\]</span> 任何一个四元数<span class="math inline">\(r = a + b I + c J + d K\)</span>的复共轭为： <span class="math display">\[\bar{r} = a - b I - c J - d K,\]</span> 最后<span class="math inline">\(r\)</span>的模长定义为： <span class="math display">\[ |r| = \sqrt{a^2 + b^2 + c^2 + d^2} = \sqrt{r \bar{r}}, \]</span> 利用模长，任何一个四元数<span class="math inline">\(r\)</span>的倒数可以记为： <span class="math display">\[r^{-1} = \frac{\bar{r}}{|r|^2},\]</span> 最后值得一提的是，四元数的运算满足结合律，但并不一定满足交换律。</p>
+<p>利用四元数，我们可以考虑三维欧式空间<span class="math inline">\(\mathcal{R}^3\)</span>上的一个线性映射。对于三维欧式空间中的任意一个点<span class="math inline">\((x,y,z)\)</span>我们可以将其看做一个四元数<span class="math inline">\(x I + y J + z K\)</span>。对于任意给定的四元数<span class="math inline">\(r\)</span>，我们可以考虑如下映射： <span class="math display">\[R_r (x,y,z) = r \cdot (x I + y J + z K)\cdot r^{-1}.\]</span> 接下来我们直接记三维欧式空间中的点<span class="math inline">\(x I + y J + z K\)</span>为<span class="math inline">\(p\)</span>。这个映射有如下的性质：</p>
+<ul>
+<li><p><span class="math inline">\(R_r\)</span>是一个线性映射。</p></li>
+<li><p><span class="math inline">\(R_r\)</span>保持四元数<span class="math inline">\(p\)</span>的模长：<span class="math inline">\(|r p r^{-1}| = |r|\cdot |p| \cdot |r^{-1}| = |p|\)</span>。</p></li>
+<li><p>对于任意实数<span class="math inline">\(u\)</span>，<span class="math inline">\(R_{ur} = R_r\)</span>。</p></li>
+</ul>
+<p>从第二点我们可以大致猜测，如果<span class="math inline">\(r\neq 0\)</span>的话，我们可以将<span class="math inline">\(R_r\)</span>视为三维欧式空间<span class="math inline">\(\mathcal{R}^3\)</span>中的一个转动，转动轴和转动角度可以用如下方式确定下来：</p>
+<ul>
+<li><p>首先，我们可以利用<span class="math inline">\(R_{ur} = R_r\)</span>将四元数<span class="math inline">\(r\)</span>的模长设置为单位值：<span class="math inline">\(|r|=1\)</span>。</p></li>
+<li><p>如果<span class="math inline">\(r=\pm 1\)</span>的话，那么很容易看出这个转动是平凡的转动，也就是单位映射。</p></li>
+<li><p>记<span class="math inline">\(r = a + b I + c J + d K\)</span>（我们已经令<span class="math inline">\(a^2 + b^2 + c^2 + d^2 = 1\)</span>），转动轴的方向与三维矢量<span class="math inline">\((b,c,d)\)</span>同方向，并且转动的角度<span class="math inline">\(\theta\)</span>为：<span class="math inline">\(\theta = 2 \cos^{-1}(a) = 2 \sin^{-1}\left( \sqrt{a^2 + b^2 + c^2}\right)\)</span>。</p></li>
+</ul>
+<p>实际上，我们可以很容易验证转动轴<span class="math inline">\((b,c,d)\)</span>作为一个三维矢量在上述转动下保持不变: <span class="math display">\[R_r (b,c,d) = r \cdot (b I + c J + d K) \cdot r^{-1} = b I + c J + d K.\]</span> 最后，如果<span class="math inline">\(r\)</span>和<span class="math inline">\(s\)</span>为两个四元数，那么上述映射<span class="math inline">\(R\)</span>满足同态关系： <span class="math display">\[R_r \circ R_s = R_{rs},\]</span> 因此两个转动的叠加可以利用四元数写为两个相应四元数的乘法，这个是利用四元数描述三维转动的简单之处。</p>
+<p>如果读者熟悉群论，那么上述映射<span class="math inline">\(R\)</span>实际上可以看作由单位四维球面<span class="math inline">\(S^3\)</span>到三维转动群SO(3)上的一个映射： <span class="math display">\[R: S^3 \rightarrow \textrm{SO}(3),\]</span> 并且这个映射是一个同态映射。映射的核（Kernel）为： <span class="math display">\[\textrm{Ker} (R) = \{1,-1\},\]</span> 那么由同态映射的基本定理，转动群SO(3)可以写为： <span class="math display">\[\textrm{SO}(3) \cong S^3 / \{ 1,-1\},\]</span> 实际上这也正是三维的实投影平面<span class="math inline">\(\mathbb{R}\mathbb{P}_3\)</span>。这个就是SO(3)群作为一个流形的拓扑结构。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    <!--添加版权信息-->
+    <!--
+    <div>
+        
+        
+        
+    </div>
+    -->
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Mario
+  </li>
+<!--  
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="http://example.com/2021/07/09/Math/Hopf/" title="霍普夫映射与四元数">http://example.com/2021/07/09/Math/Hopf/</a>
+  </li>
+-->
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hopf/" rel="tag"># Hopf</a>
+          
+            <a href="/tags/Algebraic-Geometry/" rel="tag"># Algebraic Geometry</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/06/28/Physics/SOS%20Model/" rel="next" title="SOS Model">
+                <i class="fa fa-chevron-left"></i> SOS Model
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/07/09/Others/Wingsuit%20Skydiving/" rel="prev" title="翼装飞行，是人类的黄金精神！">
+                翼装飞行，是人类的黄金精神！ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9C%8D%E6%99%AE%E5%A4%AB%E6%98%A0%E5%B0%84hopf-map"><span class="nav-number">1.</span> <span class="nav-text">霍普夫映射(Hopf map)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">四元数</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
