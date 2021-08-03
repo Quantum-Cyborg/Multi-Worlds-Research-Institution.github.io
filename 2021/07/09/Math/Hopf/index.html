@@ -85,12 +85,12 @@
 
 
 
-<meta name="description" content="霍普夫映射(Hopf map)霍普夫映射是一个四维球面到三维球面的一个映射$h:S^3 \rightarrow S^2$满足： h(a,b,c,d) &#x3D; (a^2 + b^2 -c^2 -d^2 , 2(ad +bc), 2(bd - ac)),其中$(a,b,c,d)$是四维单位球面上的坐标，满足$a^2 + b^2 + c^2 + d^2 &#x3D; 1$，并且不难验证作为像的三维坐标$(a^2 +">
+<meta name="description" content="霍普夫映射(Hopf map) 霍普夫映射是一个四维球面到三维球面的一个映射\(h:S^3 \rightarrow S^2\)满足： \[h(a,b,c,d) &#x3D; (a^2 + b^2 -c^2 -d^2 , 2(ad +bc), 2(bd - ac)),\] 其中\((a,b,c,d)\)是四维单位球面上的坐标，满足\(a^2 + b^2 + c^2 + d^2 &#x3D; 1\)，并且不难验证作为像">
 <meta property="og:type" content="article">
 <meta property="og:title" content="霍普夫映射与四元数">
 <meta property="og:url" content="http://example.com/2021/07/09/Math/Hopf/index.html">
 <meta property="og:site_name" content="多世界研究所">
-<meta property="og:description" content="霍普夫映射(Hopf map)霍普夫映射是一个四维球面到三维球面的一个映射$h:S^3 \rightarrow S^2$满足： h(a,b,c,d) &#x3D; (a^2 + b^2 -c^2 -d^2 , 2(ad +bc), 2(bd - ac)),其中$(a,b,c,d)$是四维单位球面上的坐标，满足$a^2 + b^2 + c^2 + d^2 &#x3D; 1$，并且不难验证作为像的三维坐标$(a^2 +">
+<meta property="og:description" content="霍普夫映射(Hopf map) 霍普夫映射是一个四维球面到三维球面的一个映射\(h:S^3 \rightarrow S^2\)满足： \[h(a,b,c,d) &#x3D; (a^2 + b^2 -c^2 -d^2 , 2(ad +bc), 2(bd - ac)),\] 其中\((a,b,c,d)\)是四维单位球面上的坐标，满足\(a^2 + b^2 + c^2 + d^2 &#x3D; 1\)，并且不难验证作为像">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-07-08T18:00:53.000Z">
 <meta property="article:modified_time" content="2021-07-09T10:11:44.000Z">
@@ -142,7 +142,11 @@
 
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="中文/en">
 
@@ -368,43 +372,27 @@
       
 
       
-        <h1 id="霍普夫映射-Hopf-map"><a href="#霍普夫映射-Hopf-map" class="headerlink" title="霍普夫映射(Hopf map)"></a>霍普夫映射(Hopf map)</h1><p>霍普夫映射是一个四维球面到三维球面的一个映射$h:S^3 \rightarrow S^2$满足：</p>
-<script type="math/tex; mode=display">h(a,b,c,d) = (a^2 + b^2 -c^2 -d^2 , 2(ad +bc), 2(bd - ac)),</script><p>其中$(a,b,c,d)$是四维单位球面上的坐标，满足$a^2 + b^2 + c^2 + d^2 = 1$，并且不难验证作为像的三维坐标$(a^2 + b^2 -c^2 -d^2 , 2(ad +bc), 2(bd - ac))$同样是位于三维单位球面上的。为了更好地理解霍普夫映射以及霍普夫纤维化，我们需要引入一种更好的刻画四维球面的方法，即所谓的四元数。</p>
-<h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><p>在四维欧式空间$\mathbb{R}^4$里，考虑任何一个四维矢量$(a,b,c,d)$（这里暂不要求是单位矢量），我们可以将其写为：</p>
-<script type="math/tex; mode=display">r \equiv a + b I + c J + d K = (a + b I) + (c + d I) J,</script><p>其中$I$是我们常用的虚数单位，而$J,K$则是另外引入的两个新的虚数单位，它们三者之间满足如下的代数关系：</p>
-<script type="math/tex; mode=display">\left\{ \begin{array}{l}
+        <h1 id="霍普夫映射hopf-map">霍普夫映射(Hopf map)</h1>
+<p>霍普夫映射是一个四维球面到三维球面的一个映射<span class="math inline">\(h:S^3 \rightarrow S^2\)</span>满足： <span class="math display">\[h(a,b,c,d) = (a^2 + b^2 -c^2 -d^2 , 2(ad +bc), 2(bd - ac)),\]</span> 其中<span class="math inline">\((a,b,c,d)\)</span>是四维单位球面上的坐标，满足<span class="math inline">\(a^2 + b^2 + c^2 + d^2 = 1\)</span>，并且不难验证作为像的三维坐标<span class="math inline">\((a^2 + b^2 -c^2 -d^2 , 2(ad +bc), 2(bd - ac))\)</span>同样是位于三维单位球面上的。为了更好地理解霍普夫映射以及霍普夫纤维化，我们需要引入一种更好的刻画四维球面的方法，即所谓的四元数。</p>
+<h1 id="四元数">四元数</h1>
+<p>在四维欧式空间<span class="math inline">\(\mathbb{R}^4\)</span>里，考虑任何一个四维矢量<span class="math inline">\((a,b,c,d)\)</span>（这里暂不要求是单位矢量），我们可以将其写为： <span class="math display">\[r \equiv a + b I + c J + d K = (a + b I) + (c + d I) J,\]</span> 其中<span class="math inline">\(I\)</span>是我们常用的虚数单位，而<span class="math inline">\(J,K\)</span>则是另外引入的两个新的虚数单位，它们三者之间满足如下的代数关系： <span class="math display">\[\left\{ \begin{array}{l}
 I^2 = J^2 = K^2 = -1\\
 IJ = - JI = K,\\  JK=-KJ = I,\\ KI = -IK = J
-\end{array} \right.</script><p>任何一个四元数$r = a + b I + c J + d K$的复共轭为：</p>
-<script type="math/tex; mode=display">\bar{r} = a - b I - c J - d K,</script><p>最后$r$的模长定义为：</p>
-<script type="math/tex; mode=display">|r| = \sqrt{a^2 + b^2 + c^2 + d^2} = \sqrt{r \bar{r}},</script><p>利用模长，任何一个四元数$r$的倒数可以记为：</p>
-<script type="math/tex; mode=display">r^{-1} = \frac{\bar{r}}{|r|^2},</script><p>最后值得一提的是，四元数的运算满足结合律，但并不一定满足交换律。</p>
-<p>利用四元数，我们可以考虑三维欧式空间$\mathcal{R}^3$上的一个线性映射。对于三维欧式空间中的任意一个点$(x,y,z)$我们可以将其看做一个四元数$x I + y J + z K$。对于任意给定的四元数$r$，我们可以考虑如下映射：</p>
-<script type="math/tex; mode=display">R_r (x,y,z) = r \cdot (x I + y J + z K)\cdot r^{-1}.</script><p>接下来我们直接记三维欧式空间中的点$x I + y J + z K$为$p$。这个映射有如下的性质：</p>
+\end{array} \right.\]</span> 任何一个四元数<span class="math inline">\(r = a + b I + c J + d K\)</span>的复共轭为： <span class="math display">\[\bar{r} = a - b I - c J - d K,\]</span> 最后<span class="math inline">\(r\)</span>的模长定义为： <span class="math display">\[ |r| = \sqrt{a^2 + b^2 + c^2 + d^2} = \sqrt{r \bar{r}}, \]</span> 利用模长，任何一个四元数<span class="math inline">\(r\)</span>的倒数可以记为： <span class="math display">\[r^{-1} = \frac{\bar{r}}{|r|^2},\]</span> 最后值得一提的是，四元数的运算满足结合律，但并不一定满足交换律。</p>
+<p>利用四元数，我们可以考虑三维欧式空间<span class="math inline">\(\mathcal{R}^3\)</span>上的一个线性映射。对于三维欧式空间中的任意一个点<span class="math inline">\((x,y,z)\)</span>我们可以将其看做一个四元数<span class="math inline">\(x I + y J + z K\)</span>。对于任意给定的四元数<span class="math inline">\(r\)</span>，我们可以考虑如下映射： <span class="math display">\[R_r (x,y,z) = r \cdot (x I + y J + z K)\cdot r^{-1}.\]</span> 接下来我们直接记三维欧式空间中的点<span class="math inline">\(x I + y J + z K\)</span>为<span class="math inline">\(p\)</span>。这个映射有如下的性质：</p>
 <ul>
-<li><p>$R_r$是一个线性映射。</p>
-</li>
-<li><p>$R_r$保持四元数$p$的模长：$|r p r^{-1}| = |r|\cdot |p| \cdot |r^{-1}| = |p|$。</p>
-</li>
-<li><p>对于任意实数$u$，$R_{ur} = R_r$。</p>
-</li>
+<li><p><span class="math inline">\(R_r\)</span>是一个线性映射。</p></li>
+<li><p><span class="math inline">\(R_r\)</span>保持四元数<span class="math inline">\(p\)</span>的模长：<span class="math inline">\(|r p r^{-1}| = |r|\cdot |p| \cdot |r^{-1}| = |p|\)</span>。</p></li>
+<li><p>对于任意实数<span class="math inline">\(u\)</span>，<span class="math inline">\(R_{ur} = R_r\)</span>。</p></li>
 </ul>
-<p>从第二点我们可以大致猜测，如果$r\neq 0$的话，我们可以将$R_r$视为三维欧式空间$\mathcal{R}^3$中的一个转动，转动轴和转动角度可以用如下方式确定下来：</p>
+<p>从第二点我们可以大致猜测，如果<span class="math inline">\(r\neq 0\)</span>的话，我们可以将<span class="math inline">\(R_r\)</span>视为三维欧式空间<span class="math inline">\(\mathcal{R}^3\)</span>中的一个转动，转动轴和转动角度可以用如下方式确定下来：</p>
 <ul>
-<li><p>首先，我们可以利用$R_{ur} = R_r$将四元数$r$的模长设置为单位值：$|r|=1$。</p>
-</li>
-<li><p>如果$r=\pm 1$的话，那么很容易看出这个转动是平凡的转动，也就是单位映射。</p>
-</li>
-<li><p>记$r = a + b I + c J + d K$（我们已经令$a^2 + b^2 + c^2 + d^2 = 1$），转动轴的方向与三维矢量$(b,c,d)$同方向，并且转动的角度$\theta$为：$\theta = 2 \cos^{-1}(a) = 2 \sin^{-1}\left( \sqrt{a^2 + b^2 + c^2}\right)$。</p>
-</li>
+<li><p>首先，我们可以利用<span class="math inline">\(R_{ur} = R_r\)</span>将四元数<span class="math inline">\(r\)</span>的模长设置为单位值：<span class="math inline">\(|r|=1\)</span>。</p></li>
+<li><p>如果<span class="math inline">\(r=\pm 1\)</span>的话，那么很容易看出这个转动是平凡的转动，也就是单位映射。</p></li>
+<li><p>记<span class="math inline">\(r = a + b I + c J + d K\)</span>（我们已经令<span class="math inline">\(a^2 + b^2 + c^2 + d^2 = 1\)</span>），转动轴的方向与三维矢量<span class="math inline">\((b,c,d)\)</span>同方向，并且转动的角度<span class="math inline">\(\theta\)</span>为：<span class="math inline">\(\theta = 2 \cos^{-1}(a) = 2 \sin^{-1}\left( \sqrt{a^2 + b^2 + c^2}\right)\)</span>。</p></li>
 </ul>
-<p>实际上，我们可以很容易验证转动轴$(b,c,d)$作为一个三维矢量在上述转动下保持不变:</p>
-<script type="math/tex; mode=display">R_r (b,c,d) = r \cdot (b I + c J + d K) \cdot r^{-1} = b I + c J + d K.</script><p>最后，如果$r$和$s$为两个四元数，那么上述映射$R$满足同态关系：</p>
-<script type="math/tex; mode=display">R_r \circ R_s = R_{rs},</script><p>因此两个转动的叠加可以利用四元数写为两个相应四元数的乘法，这个是利用四元数描述三维转动的简单之处。</p>
-<p>如果读者熟悉群论，那么上述映射$R$实际上可以看作由单位四维球面$S^3$到三维转动群SO(3)上的一个映射：</p>
-<script type="math/tex; mode=display">R: S^3 \rightarrow \textrm{SO}(3),</script><p>并且这个映射是一个同态映射。映射的核（Kernel）为：</p>
-<script type="math/tex; mode=display">\textrm{Ker} (R) = \{1,-1\},</script><p>那么由同态映射的基本定理，转动群SO(3)可以写为：</p>
-<script type="math/tex; mode=display">\textrm{SO}(3) \cong S^3 / \{ 1,-1\},</script><p>实际上这也正是三维的实投影平面$\mathbb{R}\mathbb{P}_3$。这个就是SO(3)群作为一个流形的拓扑结构。</p>
+<p>实际上，我们可以很容易验证转动轴<span class="math inline">\((b,c,d)\)</span>作为一个三维矢量在上述转动下保持不变: <span class="math display">\[R_r (b,c,d) = r \cdot (b I + c J + d K) \cdot r^{-1} = b I + c J + d K.\]</span> 最后，如果<span class="math inline">\(r\)</span>和<span class="math inline">\(s\)</span>为两个四元数，那么上述映射<span class="math inline">\(R\)</span>满足同态关系： <span class="math display">\[R_r \circ R_s = R_{rs},\]</span> 因此两个转动的叠加可以利用四元数写为两个相应四元数的乘法，这个是利用四元数描述三维转动的简单之处。</p>
+<p>如果读者熟悉群论，那么上述映射<span class="math inline">\(R\)</span>实际上可以看作由单位四维球面<span class="math inline">\(S^3\)</span>到三维转动群SO(3)上的一个映射： <span class="math display">\[R: S^3 \rightarrow \textrm{SO}(3),\]</span> 并且这个映射是一个同态映射。映射的核（Kernel）为： <span class="math display">\[\textrm{Ker} (R) = \{1,-1\},\]</span> 那么由同态映射的基本定理，转动群SO(3)可以写为： <span class="math display">\[\textrm{SO}(3) \cong S^3 / \{ 1,-1\},\]</span> 实际上这也正是三维的实投影平面<span class="math inline">\(\mathbb{R}\mathbb{P}_3\)</span>。这个就是SO(3)群作为一个流形的拓扑结构。</p>
 
       
     </div>
@@ -611,7 +599,7 @@ IJ = - JI = K,\\  JK=-KJ = I,\\ KI = -IK = J
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9C%8D%E6%99%AE%E5%A4%AB%E6%98%A0%E5%B0%84-Hopf-map"><span class="nav-number">1.</span> <span class="nav-text">霍普夫映射(Hopf map)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">四元数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9C%8D%E6%99%AE%E5%A4%AB%E6%98%A0%E5%B0%84hopf-map"><span class="nav-number">1.</span> <span class="nav-text">霍普夫映射(Hopf map)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">四元数</span></a></li></ol></div>
             
 
           </div>

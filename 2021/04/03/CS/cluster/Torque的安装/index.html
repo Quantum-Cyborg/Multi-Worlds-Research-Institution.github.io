@@ -85,12 +85,12 @@
 
 
 
-<meta name="description" content="帮同学在小集群上安装了Torque PBS系统，简要地记录了一些的安装的过程。但是当时急匆匆的，很多细节没有记录，这里的记录只作为一个很粗略的笔记。  NFSyum  -y  install  nfs-utils systemctl enable nfs systemctl restart nfs showmount -e 192.168.0.115修改 &#x2F;etc&#x2F;fstab192.168.0.1">
+<meta name="description" content="帮同学在小集群上安装了Torque PBS系统，简要地记录了一些的安装的过程。但是当时急匆匆的，很多细节没有记录，这里的记录只作为一个很粗略的笔记。  NFS yum  -y  install  nfs-utils systemctl enable nfs systemctl restart nfs showmount -e 192.168.0.115 修改 &#x2F;etc&#x2F;fstab 192.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Torque PBS系统的安装">
 <meta property="og:url" content="http://example.com/2021/04/03/CS/cluster/Torque%E7%9A%84%E5%AE%89%E8%A3%85/index.html">
 <meta property="og:site_name" content="多世界研究所">
-<meta property="og:description" content="帮同学在小集群上安装了Torque PBS系统，简要地记录了一些的安装的过程。但是当时急匆匆的，很多细节没有记录，这里的记录只作为一个很粗略的笔记。  NFSyum  -y  install  nfs-utils systemctl enable nfs systemctl restart nfs showmount -e 192.168.0.115修改 &#x2F;etc&#x2F;fstab192.168.0.1">
+<meta property="og:description" content="帮同学在小集群上安装了Torque PBS系统，简要地记录了一些的安装的过程。但是当时急匆匆的，很多细节没有记录，这里的记录只作为一个很粗略的笔记。  NFS yum  -y  install  nfs-utils systemctl enable nfs systemctl restart nfs showmount -e 192.168.0.115 修改 &#x2F;etc&#x2F;fstab 192.">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-04-02T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-07-09T10:11:20.000Z">
@@ -141,7 +141,11 @@
 
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="中文/en">
 
@@ -368,71 +372,46 @@
 
       
         <p>帮同学在小集群上安装了Torque PBS系统，简要地记录了一些的安装的过程。但是当时急匆匆的，很多细节没有记录，这里的记录只作为一个很粗略的笔记。</p>
-<hr>
-<h1 id="NFS"><a href="#NFS" class="headerlink" title="NFS"></a>NFS</h1><p><code>yum  -y  install  nfs-utils
-systemctl enable nfs
-systemctl restart nfs</code></p>
-<p><code>showmount -e 192.168.0.115</code><br>修改 /etc/fstab<br><code>192.168.0.115:/home/customer  /home/customer nfs defaults,nfsvers=3 0 0</code></p>
-<p>挂载<br><code>cd /home
-mkdir customer
-mount -a
-mount</code></p>
+<hr />
+<h1 id="nfs">NFS</h1>
+<p><code>yum  -y  install  nfs-utils systemctl enable nfs systemctl restart nfs</code></p>
+<p><code>showmount -e 192.168.0.115</code> 修改 /etc/fstab <code>192.168.0.115:/home/customer  /home/customer nfs defaults,nfsvers=3 0 0</code></p>
+<p>挂载 <code>cd /home mkdir customer mount -a mount</code></p>
 <p>edit /etc/hosts:</p>
-<p><code>vim /etc/hosts</code><br>192.168.0.125 node06</p>
-<h1 id="NIS"><a href="#NIS" class="headerlink" title="NIS"></a>NIS</h1><p><code>yum -y install ypserv ypbind yp-tools rpcbind</code></p>
-<p>cal node:<br><code>vim /etc/sysconfig/network</code>   NISDOMAIN=licluster<br><code>vim /etc/rc.local</code>            nisdomainname   licluster<br><code>vim /etc/yp.conf</code>          domain licluster server 192.168.0.115<br><code>nisdomainname licluster</code> / nisdomainname 192.168.0.115<br><code>vim /etc/nsswitch.conf</code>        </p>
-<p><code>systemctl start ypbind.service
-systemctl start rpcbind.service
-systemctl enable ypbind.service
-systemctl enable rpcbind.service</code></p>
-<p>检查是否启动: <code>ypwhich</code><br>测试用户customer信息: <code>id customer</code><br>检查同步的文件: <code>yptest</code></p>
-<h1 id="ssh免输密码访问-基于密钥"><a href="#ssh免输密码访问-基于密钥" class="headerlink" title="ssh免输密码访问:基于密钥"></a>ssh免输密码访问:基于密钥</h1><h1 id="NTP客户端"><a href="#NTP客户端" class="headerlink" title="NTP客户端"></a>NTP客户端</h1><p><code>yum -y install ntp ntpdate
-ntpdate master</code></p>
-<h1 id="Cluster"><a href="#Cluster" class="headerlink" title="Cluster"></a>Cluster</h1><h2 id="主节点上的安装"><a href="#主节点上的安装" class="headerlink" title="主节点上的安装"></a>主节点上的安装</h2><p><code>./configure --prefix=/usr/local/torque --with-default-server=$HOSTNAME</code><br><code>make</code><br><code>make install</code></p>
+<p><code>vim /etc/hosts</code> 192.168.0.125 node06</p>
+<h1 id="nis">NIS</h1>
+<p><code>yum -y install ypserv ypbind yp-tools rpcbind</code></p>
+<p>cal node: <code>vim /etc/sysconfig/network</code> NISDOMAIN=licluster <code>vim /etc/rc.local</code> nisdomainname licluster <code>vim /etc/yp.conf</code> domain licluster server 192.168.0.115 <code>nisdomainname licluster</code> / nisdomainname 192.168.0.115 <code>vim /etc/nsswitch.conf</code></p>
+<p><code>systemctl start ypbind.service systemctl start rpcbind.service systemctl enable ypbind.service systemctl enable rpcbind.service</code></p>
+<p>检查是否启动: <code>ypwhich</code> 测试用户customer信息: <code>id customer</code> 检查同步的文件: <code>yptest</code></p>
+<h1 id="ssh免输密码访问基于密钥">ssh免输密码访问:基于密钥</h1>
+<h1 id="ntp客户端">NTP客户端</h1>
+<p><code>yum -y install ntp ntpdate ntpdate master</code></p>
+<h1 id="cluster">Cluster</h1>
+<h2 id="主节点上的安装">主节点上的安装</h2>
+<p><code>./configure --prefix=/usr/local/torque --with-default-server=$HOSTNAME</code> <code>make</code> <code>make install</code></p>
 <blockquote>
-<p>  pbs_mom<br>  PBS MOM守护进程， 负责监控本机并执行作业，位于所有计算节点上<br>  pbs_sched<br>  PBS调度守护进程，负责调度作业，位于服务节点上<br>  pbs_server<br>  PBS服务守护进程，负责接收作业提交，位于服务节点上</p>
+<p>pbs_mom PBS MOM守护进程， 负责监控本机并执行作业，位于所有计算节点上 pbs_sched PBS调度守护进程，负责调度作业，位于服务节点上 pbs_server PBS服务守护进程，负责接收作业提交，位于服务节点上</p>
 </blockquote>
 <ul>
-<li>添加系统服务<br><code>cp  contrib/systemd/trqauthd.service  /usr/lib/systemd/system/</code><br><code>cp  contrib/systemd/pbs_server.service /usr/lib/systemd/system/</code><br><code>cp  contrib/systemd/pbs_sched.service  /usr/lib/systemd/system/</code><br><code>cp  contrib/systemd/pbs_mom.service  /usr/lib/systemd/system/</code></li>
+<li><p>添加系统服务 <code>cp  contrib/systemd/trqauthd.service  /usr/lib/systemd/system/</code> <code>cp  contrib/systemd/pbs_server.service /usr/lib/systemd/system/</code> <code>cp  contrib/systemd/pbs_sched.service  /usr/lib/systemd/system/</code> <code>cp  contrib/systemd/pbs_mom.service  /usr/lib/systemd/system/</code></p></li>
+<li><p>添加开机启动 <code>systemctl enable pbs_server</code> <code>systemctl enable pbs_sched</code> <code>systemctl enable pbs_mom</code> <code>systemctl enable trqauthd</code></p></li>
+<li><p>Configure Torque on headnode <code>echo [correct_hostname] &gt; /var/spool/torque/server_name</code> <code>echo "/opt/torque/lib" &gt; /etc/ld.so.conf.d/torque.conf</code> <code>ldconfig</code> adding the information of nodes in /var/spool/torque/server_priv/nodes. <code>node01 np=1</code> <code>node02 np=1</code></p></li>
+<li><p>Initialize serverdb: <code>./torque.setup  root</code> <code>qterm</code></p></li>
 </ul>
-<ul>
-<li><p>添加开机启动<br><code>systemctl enable pbs_server</code><br><code>systemctl enable pbs_sched</code><br><code>systemctl enable pbs_mom</code><br><code>systemctl enable trqauthd</code></p>
-</li>
-<li><p>Configure Torque on headnode<br><code>echo [correct_hostname] &gt; /var/spool/torque/server_name</code><br><code>echo &quot;/opt/torque/lib&quot; &gt; /etc/ld.so.conf.d/torque.conf</code><br><code>ldconfig</code><br>adding the information of nodes in /var/spool/torque/server_priv/nodes.</p>
-<pre><code>`node01 np=1`
-`node02 np=1`
-</code></pre></li>
-</ul>
-<ul>
-<li>Initialize serverdb:<br><code>./torque.setup  root</code><br><code>qterm</code></li>
-</ul>
-<p>启动<br><code>systemctl start pbs_sched
-systemctl start pbs_mom
-systemctl start trqauthd
-systemctl start pbs_server</code></p>
-<h2 id="计算节点上的安装"><a href="#计算节点上的安装" class="headerlink" title="计算节点上的安装"></a>计算节点上的安装</h2><p>在解压缩后的目录/opt/src/torque-6.1.2下运行<code>make packages</code></p>
-<p><code>cd /home/customer/software/torque-6.1.2/
-./torque-package-clients-linux-x86_64.sh  --install
-./torque-package-devel-linux-x86_64.sh  --install
-./torque-package-doc-linux-x86_64.sh  --install
-./torque-package-mom-linux-x86_64.sh  --install
-./torque-package-server-linux-x86_64.sh  --install</code></p>
+<p>启动 <code>systemctl start pbs_sched systemctl start pbs_mom systemctl start trqauthd systemctl start pbs_server</code></p>
+<h2 id="计算节点上的安装">计算节点上的安装</h2>
+<p>在解压缩后的目录/opt/src/torque-6.1.2下运行<code>make packages</code></p>
+<p><code>cd /home/customer/software/torque-6.1.2/ ./torque-package-clients-linux-x86_64.sh  --install ./torque-package-devel-linux-x86_64.sh  --install ./torque-package-doc-linux-x86_64.sh  --install ./torque-package-mom-linux-x86_64.sh  --install ./torque-package-server-linux-x86_64.sh  --install</code></p>
 <p>计算节点配置</p>
 <p><code>/var/spool/torque</code> 下创建一个文件 server_name</p>
-<p>修改  <code>/var/spool/torque/mom_priv/config</code></p>
-<p><code>$pbsserver  master  #服务端主机名
-$logevent 255  #日志级别
-$usecp  master:/home/customer  /home/customer  #对NFS共享目录采用cp而不是scp复制文件
-$spool_as_final_name  true</code></p>
-<p><code>systemctl enable pbs_mom.service
-systemctl start pbs_mom.service</code></p>
-<h1 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h1><p>获取 firewalld 状态       <code>firewall-cmd --state</code><br>列出全部启用的区域的特性   <code>firewall-cmd --list-all-zones</code><br>开放端口（开放后需要要重启防火墙才生效）<br><code>firewall-cmd --zone=public --add-port=2049/tcp --permanent
-firewall-cmd --zone=public --add-port=2049/udp --permanent
-firewall-cmd --zone=public --add-port=15003/tcp --permanent
-firewall-cmd --zone=public --add-port=15003/udp --permanent
-firewall-cmd --zone=public --add-port=15002/tcp --permanent
-firewall-cmd --zone=public --add-port=15002/udp --permanent</code><br>重启防火墙    <code>firewall-cmd --reload</code></p>
-<h1 id="change-the-uid"><a href="#change-the-uid" class="headerlink" title="change the uid"></a>change the uid</h1>
+<p>修改 <code>/var/spool/torque/mom_priv/config</code></p>
+<p><code>$pbsserver  master  #服务端主机名 $logevent 255  #日志级别 $usecp  master:/home/customer  /home/customer  #对NFS共享目录采用cp而不是scp复制文件 $spool_as_final_name  true</code></p>
+<p><code>systemctl enable pbs_mom.service systemctl start pbs_mom.service</code></p>
+<h1 id="防火墙">防火墙</h1>
+<p>获取 firewalld 状态 <code>firewall-cmd --state</code> 列出全部启用的区域的特性 <code>firewall-cmd --list-all-zones</code> 开放端口（开放后需要要重启防火墙才生效） <code>firewall-cmd --zone=public --add-port=2049/tcp --permanent firewall-cmd --zone=public --add-port=2049/udp --permanent firewall-cmd --zone=public --add-port=15003/tcp --permanent firewall-cmd --zone=public --add-port=15003/udp --permanent firewall-cmd --zone=public --add-port=15002/tcp --permanent firewall-cmd --zone=public --add-port=15002/udp --permanent</code> 重启防火墙 <code>firewall-cmd --reload</code></p>
+<h1 id="change-the-uid">change the uid</h1>
+
       
     </div>
     
@@ -636,7 +615,7 @@ firewall-cmd --zone=public --add-port=15002/udp --permanent</code><br>重启防�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NFS"><span class="nav-number">1.</span> <span class="nav-text">NFS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NIS"><span class="nav-number">2.</span> <span class="nav-text">NIS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ssh%E5%85%8D%E8%BE%93%E5%AF%86%E7%A0%81%E8%AE%BF%E9%97%AE-%E5%9F%BA%E4%BA%8E%E5%AF%86%E9%92%A5"><span class="nav-number">3.</span> <span class="nav-text">ssh免输密码访问:基于密钥</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NTP%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">4.</span> <span class="nav-text">NTP客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cluster"><span class="nav-number">5.</span> <span class="nav-text">Cluster</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E8%8A%82%E7%82%B9%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">5.1.</span> <span class="nav-text">主节点上的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E8%8A%82%E7%82%B9%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">5.2.</span> <span class="nav-text">计算节点上的安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">6.</span> <span class="nav-text">防火墙</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#change-the-uid"><span class="nav-number">7.</span> <span class="nav-text">change the uid</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#nfs"><span class="nav-number">1.</span> <span class="nav-text">NFS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nis"><span class="nav-number">2.</span> <span class="nav-text">NIS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ssh%E5%85%8D%E8%BE%93%E5%AF%86%E7%A0%81%E8%AE%BF%E9%97%AE%E5%9F%BA%E4%BA%8E%E5%AF%86%E9%92%A5"><span class="nav-number">3.</span> <span class="nav-text">ssh免输密码访问:基于密钥</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ntp%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">4.</span> <span class="nav-text">NTP客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cluster"><span class="nav-number">5.</span> <span class="nav-text">Cluster</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E8%8A%82%E7%82%B9%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">5.1.</span> <span class="nav-text">主节点上的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E8%8A%82%E7%82%B9%E4%B8%8A%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">5.2.</span> <span class="nav-text">计算节点上的安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">6.</span> <span class="nav-text">防火墙</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#change-the-uid"><span class="nav-number">7.</span> <span class="nav-text">change the uid</span></a></li></ol></div>
             
 
           </div>
