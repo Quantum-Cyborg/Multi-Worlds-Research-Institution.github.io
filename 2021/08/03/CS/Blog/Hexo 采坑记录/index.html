@@ -74,7 +74,7 @@
 
 
 
-  <meta name="keywords" content="Hopf,Algebraic Geometry," />
+  <meta name="keywords" content="Blog," />
 
 
 
@@ -85,17 +85,16 @@
 
 
 
-<meta name="description" content="霍普夫映射(Hopf map) 霍普夫映射是一个四维球面到三维球面的一个映射\(h:S^3 \rightarrow S^2\)满足： \[h(a,b,c,d) &#x3D; (a^2 + b^2 -c^2 -d^2 , 2(ad +bc), 2(bd - ac)),\] 其中\((a,b,c,d)\)是四维单位球面上的坐标，满足\(a^2 + b^2 + c^2 + d^2 &#x3D; 1\)，并且不难验证作为像">
+<meta name="description" content="公式渲染 公式渲染是最麻烦的一个坑，Hexo官方自带的渲染引擎marked完全没法用，需要更换到其他的渲染引擎，我第一个尝试的是kramed： kramed 卸载自带的marked，安装kramed 12npm un hexo-renderer-marked --savenpm i hexo-renderer-kramed --save 然后需要修改文件node_modules\kramed">
 <meta property="og:type" content="article">
-<meta property="og:title" content="霍普夫映射与四元数">
-<meta property="og:url" content="http://example.com/2021/07/09/Math/Hopf/index.html">
+<meta property="og:title" content="Hexo 采坑记录">
+<meta property="og:url" content="http://example.com/2021/08/03/CS/Blog/Hexo%20%E9%87%87%E5%9D%91%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="多世界研究所">
-<meta property="og:description" content="霍普夫映射(Hopf map) 霍普夫映射是一个四维球面到三维球面的一个映射\(h:S^3 \rightarrow S^2\)满足： \[h(a,b,c,d) &#x3D; (a^2 + b^2 -c^2 -d^2 , 2(ad +bc), 2(bd - ac)),\] 其中\((a,b,c,d)\)是四维单位球面上的坐标，满足\(a^2 + b^2 + c^2 + d^2 &#x3D; 1\)，并且不难验证作为像">
+<meta property="og:description" content="公式渲染 公式渲染是最麻烦的一个坑，Hexo官方自带的渲染引擎marked完全没法用，需要更换到其他的渲染引擎，我第一个尝试的是kramed： kramed 卸载自带的marked，安装kramed 12npm un hexo-renderer-marked --savenpm i hexo-renderer-kramed --save 然后需要修改文件node_modules\kramed">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-07-08T18:00:53.000Z">
-<meta property="article:modified_time" content="2021-07-09T10:11:44.000Z">
-<meta property="article:tag" content="Hopf">
-<meta property="article:tag" content="Algebraic Geometry">
+<meta property="article:published_time" content="2021-08-03T05:27:57.000Z">
+<meta property="article:modified_time" content="2021-08-03T05:58:12.052Z">
+<meta property="article:tag" content="Blog">
 <meta name="twitter:card" content="summary">
 
 
@@ -126,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://example.com/2021/07/09/Math/Hopf/"/>
+  <link rel="canonical" href="http://example.com/2021/08/03/CS/Blog/Hexo 采坑记录/"/>
 
 
 
 
 
-  <title>霍普夫映射与四元数 | 多世界研究所</title>
+  <title>Hexo 采坑记录 | 多世界研究所</title>
   
 
 
@@ -283,7 +282,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/09/Math/Hopf/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/03/CS/Blog/Hexo%20%E9%87%87%E5%9D%91%E8%AE%B0%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -300,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">霍普夫映射与四元数</h1>
+          <h1 class="post-title" itemprop="name headline">Hexo 采坑记录</h1>
         
 
         <div class="post-meta">
@@ -312,8 +311,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-07-09T02:00:53+08:00">
-                2021-07-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-08-03T13:27:57+08:00">
+                2021-08-03
               </time>
             
 
@@ -335,8 +334,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Math/" itemprop="url" rel="index">
-                    <span itemprop="name">Math</span>
+                  <a href="/categories/CS/" itemprop="url" rel="index">
+                    <span itemprop="name">CS</span>
                   </a>
                 </span>
 
@@ -372,27 +371,16 @@
       
 
       
-        <h1 id="霍普夫映射hopf-map">霍普夫映射(Hopf map)</h1>
-<p>霍普夫映射是一个四维球面到三维球面的一个映射<span class="math inline">\(h:S^3 \rightarrow S^2\)</span>满足： <span class="math display">\[h(a,b,c,d) = (a^2 + b^2 -c^2 -d^2 , 2(ad +bc), 2(bd - ac)),\]</span> 其中<span class="math inline">\((a,b,c,d)\)</span>是四维单位球面上的坐标，满足<span class="math inline">\(a^2 + b^2 + c^2 + d^2 = 1\)</span>，并且不难验证作为像的三维坐标<span class="math inline">\((a^2 + b^2 -c^2 -d^2 , 2(ad +bc), 2(bd - ac))\)</span>同样是位于三维单位球面上的。为了更好地理解霍普夫映射以及霍普夫纤维化，我们需要引入一种更好的刻画四维球面的方法，即所谓的四元数。</p>
-<h1 id="四元数">四元数</h1>
-<p>在四维欧式空间<span class="math inline">\(\mathbb{R}^4\)</span>里，考虑任何一个四维矢量<span class="math inline">\((a,b,c,d)\)</span>（这里暂不要求是单位矢量），我们可以将其写为： <span class="math display">\[r \equiv a + b I + c J + d K = (a + b I) + (c + d I) J,\]</span> 其中<span class="math inline">\(I\)</span>是我们常用的虚数单位，而<span class="math inline">\(J,K\)</span>则是另外引入的两个新的虚数单位，它们三者之间满足如下的代数关系： <span class="math display">\[\left\{ \begin{array}{l}
-I^2 = J^2 = K^2 = -1\\
-IJ = - JI = K,\\  JK=-KJ = I,\\ KI = -IK = J
-\end{array} \right.\]</span> 任何一个四元数<span class="math inline">\(r = a + b I + c J + d K\)</span>的复共轭为： <span class="math display">\[\bar{r} = a - b I - c J - d K,\]</span> 最后<span class="math inline">\(r\)</span>的模长定义为： <span class="math display">\[ |r| = \sqrt{a^2 + b^2 + c^2 + d^2} = \sqrt{r \bar{r}}, \]</span> 利用模长，任何一个四元数<span class="math inline">\(r\)</span>的倒数可以记为： <span class="math display">\[r^{-1} = \frac{\bar{r}}{|r|^2},\]</span> 最后值得一提的是，四元数的运算满足结合律，但并不一定满足交换律。</p>
-<p>利用四元数，我们可以考虑三维欧式空间<span class="math inline">\(\mathcal{R}^3\)</span>上的一个线性映射。对于三维欧式空间中的任意一个点<span class="math inline">\((x,y,z)\)</span>我们可以将其看做一个四元数<span class="math inline">\(x I + y J + z K\)</span>。对于任意给定的四元数<span class="math inline">\(r\)</span>，我们可以考虑如下映射： <span class="math display">\[R_r (x,y,z) = r \cdot (x I + y J + z K)\cdot r^{-1}.\]</span> 接下来我们直接记三维欧式空间中的点<span class="math inline">\(x I + y J + z K\)</span>为<span class="math inline">\(p\)</span>。这个映射有如下的性质：</p>
-<ul>
-<li><p><span class="math inline">\(R_r\)</span>是一个线性映射。</p></li>
-<li><p><span class="math inline">\(R_r\)</span>保持四元数<span class="math inline">\(p\)</span>的模长：<span class="math inline">\(|r p r^{-1}| = |r|\cdot |p| \cdot |r^{-1}| = |p|\)</span>。</p></li>
-<li><p>对于任意实数<span class="math inline">\(u\)</span>，<span class="math inline">\(R_{ur} = R_r\)</span>。</p></li>
-</ul>
-<p>从第二点我们可以大致猜测，如果<span class="math inline">\(r\neq 0\)</span>的话，我们可以将<span class="math inline">\(R_r\)</span>视为三维欧式空间<span class="math inline">\(\mathcal{R}^3\)</span>中的一个转动，转动轴和转动角度可以用如下方式确定下来：</p>
-<ul>
-<li><p>首先，我们可以利用<span class="math inline">\(R_{ur} = R_r\)</span>将四元数<span class="math inline">\(r\)</span>的模长设置为单位值：<span class="math inline">\(|r|=1\)</span>。</p></li>
-<li><p>如果<span class="math inline">\(r=\pm 1\)</span>的话，那么很容易看出这个转动是平凡的转动，也就是单位映射。</p></li>
-<li><p>记<span class="math inline">\(r = a + b I + c J + d K\)</span>（我们已经令<span class="math inline">\(a^2 + b^2 + c^2 + d^2 = 1\)</span>），转动轴的方向与三维矢量<span class="math inline">\((b,c,d)\)</span>同方向，并且转动的角度<span class="math inline">\(\theta\)</span>为：<span class="math inline">\(\theta = 2 \cos^{-1}(a) = 2 \sin^{-1}\left( \sqrt{a^2 + b^2 + c^2}\right)\)</span>。</p></li>
-</ul>
-<p>实际上，我们可以很容易验证转动轴<span class="math inline">\((b,c,d)\)</span>作为一个三维矢量在上述转动下保持不变: <span class="math display">\[R_r (b,c,d) = r \cdot (b I + c J + d K) \cdot r^{-1} = b I + c J + d K.\]</span> 最后，如果<span class="math inline">\(r\)</span>和<span class="math inline">\(s\)</span>为两个四元数，那么上述映射<span class="math inline">\(R\)</span>满足同态关系： <span class="math display">\[R_r \circ R_s = R_{rs},\]</span> 因此两个转动的叠加可以利用四元数写为两个相应四元数的乘法，这个是利用四元数描述三维转动的简单之处。</p>
-<p>如果读者熟悉群论，那么上述映射<span class="math inline">\(R\)</span>实际上可以看作由单位四维球面<span class="math inline">\(S^3\)</span>到三维转动群SO(3)上的一个映射： <span class="math display">\[R: S^3 \rightarrow \textrm{SO}(3),\]</span> 并且这个映射是一个同态映射。映射的核（Kernel）为： <span class="math display">\[\textrm{Ker} (R) = \{1,-1\},\]</span> 那么由同态映射的基本定理，转动群SO(3)可以写为： <span class="math display">\[\textrm{SO}(3) \cong S^3 / \{ 1,-1\},\]</span> 实际上这也正是三维的实投影平面<span class="math inline">\(\mathbb{R}\mathbb{P}_3\)</span>。这个就是SO(3)群作为一个流形的拓扑结构。</p>
+        <h1 id="公式渲染">公式渲染</h1>
+<p>公式渲染是最麻烦的一个坑，Hexo官方自带的渲染引擎marked完全没法用，需要更换到其他的渲染引擎，我第一个尝试的是kramed：</p>
+<h2 id="kramed">kramed</h2>
+<p>卸载自带的marked，安装kramed <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm un hexo-renderer-marked --save</span><br><span class="line">npm i hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure> 然后需要修改文件<code>node_modules\kramed\lib\rules\inline.js</code> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,</span></span><br><span class="line"><span class="attr">escape</span>: <span class="regexp">/^\\([`*\[\]()#$+\-.!_&gt;])/</span></span><br><span class="line"><span class="comment">//  em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span></span><br><span class="line">em: <span class="regexp">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span></span><br></pre></td></tr></table></figure> 在做了这些修改之后，LaTeX中的一些字符仍然会和Markdown本身的特殊符号相冲突。比如<code>*</code>这个符号，在LaTeX的公式书写中非常常见，但kramed会将其解析为Markdown中的加粗符号，导致出现一系列的问题。</p>
+<h2 id="pandoc">pandoc</h2>
+<p>然后我就改用了pandoc.</p>
+<p>首先需要去官网下载安装pandoc软件，然后将其命令所在的目录加入到系统环境变量中去（按照不同的操作系统具体来操作）。 然后在npm中安装<code>hexo-renderer-pandoc</code> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm un hexo-renderer-marked --save</span><br><span class="line">npm un hexo-renderer-kramed --save </span><br><span class="line">npm i hexo-renderer-pandoc --save</span><br></pre></td></tr></table></figure></p>
+<p>还需要在主题的配置文件<code>_config.yml</code>中打开mathjax的开关 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mathjax:</span><br><span class="line">enable: <span class="literal">true</span></span><br><span class="line"><span class="attr">per_page</span>: <span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
+<p>以及在文章的头部打开mathjax开关 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">tags:</span><br><span class="line">mathjax: true</span><br><span class="line">--</span><br></pre></td></tr></table></figure> 这样就可以正常渲染各种公式了。</p>
+<h1 id="主题设置">主题设置</h1>
 
       
     </div>
@@ -419,12 +407,12 @@ IJ = - JI = K,\\  JK=-KJ = I,\\ KI = -IK = J
         <ul class="post-copyright">
   <li class="post-copyright-author">
     <strong>Post author:</strong>
-    Mario
+    
   </li>
 <!--  
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="http://example.com/2021/07/09/Math/Hopf/" title="霍普夫映射与四元数">http://example.com/2021/07/09/Math/Hopf/</a>
+    <a href="http://example.com/2021/08/03/CS/Blog/Hexo%20%E9%87%87%E5%9D%91%E8%AE%B0%E5%BD%95/" title="Hexo 采坑记录">http://example.com/2021/08/03/CS/Blog/Hexo%20%E9%87%87%E5%9D%91%E8%AE%B0%E5%BD%95/</a>
   </li>
 -->
   <li class="post-copyright-license">
@@ -440,9 +428,7 @@ IJ = - JI = K,\\  JK=-KJ = I,\\ KI = -IK = J
       
         <div class="post-tags">
           
-            <a href="/tags/Hopf/" rel="tag"># Hopf</a>
-          
-            <a href="/tags/Algebraic-Geometry/" rel="tag"># Algebraic Geometry</a>
+            <a href="/tags/Blog/" rel="tag"># Blog</a>
           
         </div>
       
@@ -455,8 +441,8 @@ IJ = - JI = K,\\  JK=-KJ = I,\\ KI = -IK = J
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/06/28/Physics/SOS%20Model/" rel="next" title="SOS Model">
-                <i class="fa fa-chevron-left"></i> SOS Model
+              <a href="/2021/08/01/Math/Sheaf/" rel="next" title="Sheaf">
+                <i class="fa fa-chevron-left"></i> Sheaf
               </a>
             
           </div>
@@ -464,10 +450,6 @@ IJ = - JI = K,\\  JK=-KJ = I,\\ KI = -IK = J
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/07/09/Others/Wingsuit%20Skydiving/" rel="prev" title="翼装飞行，是人类的黄金精神！">
-                翼装飞行，是人类的黄金精神！ <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -599,7 +581,7 @@ IJ = - JI = K,\\  JK=-KJ = I,\\ KI = -IK = J
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9C%8D%E6%99%AE%E5%A4%AB%E6%98%A0%E5%B0%84hopf-map"><span class="nav-number">1.</span> <span class="nav-text">霍普夫映射(Hopf map)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">四元数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93"><span class="nav-number">1.</span> <span class="nav-text">公式渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#kramed"><span class="nav-number">1.1.</span> <span class="nav-text">kramed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pandoc"><span class="nav-number">1.2.</span> <span class="nav-text">pandoc</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">主题设置</span></a></li></ol></div>
             
 
           </div>
@@ -815,26 +797,6 @@ IJ = - JI = K,\\  JK=-KJ = I,\\ KI = -IK = J
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
